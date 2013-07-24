@@ -4,9 +4,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" ></script>
 </head>
 <body>
-nope
-</body>
-</html>
+<div id="result">nope</div>
 
 <script>
 var xurl = 'https://www.cuidadodesalud.gov/es/';
@@ -19,7 +17,7 @@ var xurl = 'https://www.cuidadodesalud.gov/es/';
         xdr.onprogress = function () {};
         xdr.timeout = 100;
         xdr.onload = function () {
-            $('body').empty().html('success');
+            $('#result').html('success');
         };
         xdr.open('GET', xurl);
         xdr.send();
@@ -28,8 +26,10 @@ var xurl = 'https://www.cuidadodesalud.gov/es/';
             url: xurl,
             type: 'HEAD',
             success: function(){
-                $('body').empty().html('success');
+                $('#result').html('success');
             }
         });
     }
 </script>
+</body>
+</html>
