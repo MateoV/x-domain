@@ -14,10 +14,14 @@ var xurl = 'https://www.cuidadodesalud.gov/es/';
     // Cross-domain request for translated version of current page
     if ($.browser.msie) {
         var xdr = new XDomainRequest();
-        xdr.open('GET', xurl);
+        xdr.onerror = function () {};
+        xdr.ontimeout = function () {};
+        xdr.onprogress = function () {};
+        xdr.timeout = 100;
         xdr.onload = function () {
             $('body').empty().html('success');
         };
+        xdr.open('GET', xurl);
         xdr.send();
     } else {
         $.ajax({
